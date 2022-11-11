@@ -16,6 +16,14 @@ pipeline {
 			touch test.txt
 			'''
 			}
+		post {
+                	failure {
+                  	  echo 'Repository clone failure !'
+                	}
+                	success {
+                  	  echo 'Repository clone success !'
+                	}
+        	}
 
 	}
 
