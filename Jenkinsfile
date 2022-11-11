@@ -4,7 +4,9 @@ pipeline {
   	stage(' git clone or git pull' ) 
 	{
 		steps {
-  			git url: 'https://github.com/dlgusrb3456/jenkins.git', branch: 'main'
+			git branch: 'main',
+                    	    credentialsId: 'github_access_token',
+                            url: 'https://github.com/dlgusrb3456/jenkins.git'
 		} 
 
 	}
