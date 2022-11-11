@@ -15,7 +15,7 @@ pipeline {
 	{
 		steps {
 			sh '''
-			touch test.txt
+			touch test2.txt
 			'''
 			}
 		post {
