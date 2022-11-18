@@ -28,22 +28,6 @@ pipeline {
         	}
 
 	}
-	  stage( 'add DNS in resolv.conf' ){
-		  steps {
-			  sh '''
-			  nameserver 8.8.4.4 >> /etc/resolv.conf
-			  nameserver 8.8.8.8 >> /etc/resolv.conf
-			  '''
-		  }
-		  post {
-			  failure {
-				  echo 'add nameserver failed'
-			  }
-			  success {
-				  echo 'add nameserver success'
-			  }
-		  }
-	  }
 			  
 	stage('Docker Image Build') {
 		steps {
