@@ -28,6 +28,19 @@ pipeline {
         	}
 
 	}
+	stage('Docker Image Build') {
+		steps {
+		    sh "docker build ."
+		}
+		post {
+			failure {
+			  echo 'Docker image build failure !'
+			}
+			success {
+			  echo 'Docker image build success !'
+			}
+		}
+    }
 
 	
 }
