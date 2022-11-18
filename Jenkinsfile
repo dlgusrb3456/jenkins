@@ -31,7 +31,8 @@ pipeline {
 			  
 	stage('Docker Image Build') {
 		steps {
-		    sh "docker build ."
+		    app = docker.build("685766701737.dkr.ecr.ap-northeast-1.amazonaws.com/hr-pri-image")
+		    
 		}
 		post {
 			failure {
@@ -44,10 +45,21 @@ pipeline {
     }
 	  
 	 stage('========== Push image ==========') {
-    		docker.withRegistry('685766701737.dkr.ecr.ap-northeast-1.amazonaws.com/hr-pri-image', 'lackm-ecr') {
+		 steps{
+		 	docker.withRegistry('https://685766701737.dkr.ecr.ap-northeast-1.amazonaws.com/hr-pri-image', 'lackm-ecr') {
 			app.push("${env.BUILD_NUMBER}")
 			app.push("latest")
-    		}
+    			}
+		 }
+		 post {
+			failure {
+			  echo 'Docker image Push failure !'
+			}
+			success {
+			  echo 'Docker image Push success !'
+			}
+		}
+    		
 	}
 
 	  
