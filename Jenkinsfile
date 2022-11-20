@@ -4,7 +4,7 @@ node {
      }
 
      stage('Build image') {
-         app = docker.build("685766701737.dkr.ecr.ap-northeast-1.amazonaws.com/hr-pri-image")
+         app = docker.build("685766701737.dkr.ecr.ap-northeast-1.amazonaws.com/test")
      }
 
      stage('Push image') {
