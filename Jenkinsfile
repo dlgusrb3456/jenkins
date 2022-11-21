@@ -32,6 +32,7 @@ node {
                         set +x
                         export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                         git config --global user.email "dlgusrb3456@naver.com"
+                        git config --global user.name "dlgusrb3456"
                         git checkout main
                         #cd env/dev && kustomize edit set image arm7tdmi/node-hello-world:${env.BUILD_NUMBER}
                         echo "test jenkins" >> test1.txt
